@@ -1,0 +1,22 @@
+.Paginator-Tabs {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.Paginator-Tab {
+    width: 20px;
+    height: 20px;
+
+    background: white;
+
+    border-radius: 100%;
+
+    margin: 10px;
+}
+
+.Paginator-Tab_active {
+    box-shadow: inset 0 0 0 2px white;
+    background: #333333;
+}

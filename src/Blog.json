@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Snake game",
+        "date": "11.01.2019",
+        "article": "I created two versions of snake games.\n\nFirst version written by javascript (es6). You can try it in browser [snake-game](https://hyrdbyrd.github.io/snake-game/dist/), and repos [snake-game](https://github.com/hyrdbyrd/snake-game).\n\nSecond version written by python 3. You can try it self just run it (you need python 3, and tkinter) [python-game](https://github.com/hyrdbyrd/python-game).\n\n "
+    },
+    {
+        "title": "Newton reporter",
+        "date": "11.01.2019",
+        "article": "We're with team forked original [html-reporter](https://github.com/gemini-testing/html-reporter) repository and [upgrade](https://github.com/SukachevAlex/html-reporter) them!\n\nThat project were created during 2nd section of SHRI."
+    },
+    {
+        "title": "About me",
+        "date": "10.01.2019",
+        "article": "My name is Ilya Grinenko, I'm junior frontend (some backend) developer.\n\n I'm 16 years old and my love is JavaScript."
+    }
+]
