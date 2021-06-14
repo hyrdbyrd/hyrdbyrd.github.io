@@ -1,0 +1,127 @@
+.Card {
+    position: relative;
+
+    width: 600px;
+    height: 400px;
+
+    transform-style: preserve-3d;
+    transition: all linear .5s;
+}
+
+.Card_side_ru {
+    transform: rotate3d(1, 0, 0, 180deg);
+}
+
+.Card::before {
+    position: absolute;
+
+    content: "";
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+
+    z-index: 600;
+}
+
+.Card::after {
+    position: absolute;
+    content: "";
+    display: block;
+
+    width: 282px;
+    height: 282px;
+
+    bottom: 0;
+    right: 0;
+    transform-origin: right bottom;
+    transform: rotate(45deg);
+
+    background-color: white;
+
+    z-index: 400;
+}
+
+.Card-Logo {
+    height: 50px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.Card-Content {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 800;
+}
+
+.Card-Content_side_en {
+    transform: translate3d(0, 0, 1px);
+}
+
+.Card-Content_side_ru {
+    transform: translate3d(0, 0, -1px) rotate3d(1, 0, 0, 180deg);
+}
+
+.CardContent {
+    box-sizing: border-box;
+
+    --logo-size: 20px;
+
+    height: 100%;
+
+    display: flex;
+    padding: 40px 20px;
+}
+
+.CardContent-LeftSide {
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+}
+
+.CardContent-RightSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.CardContent-Logo {
+    margin-right: 10px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    width: var(--logo-size);
+    height: var(--logo-size);
+}
+
+.CardContent-Logo_type_inst {
+    width: var(--logo-size);
+    height: var(--logo-size);
+}
+
+.CardContent-Contact {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.CardContent-Name {
+    font-weight: bold;
+    font-size: 24px;
+}
