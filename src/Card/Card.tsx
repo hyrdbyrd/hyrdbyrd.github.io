@@ -10,6 +10,7 @@ import VKLogo from './vklogo.svg';
 import { Link } from '../Link/Link';
 
 import './Card.css';
+import { useRef } from 'react';
 
 const cnCardContent = cn('CardContent');
 interface CardContentProps {
@@ -71,9 +72,17 @@ const cnCard = cn('Card');
 export const Card = memo(() => {
     const [lang, setLang] = useState('eng');
     const onToggleCallback = useCallback(() => setLang(lang === 'eng' ? 'ru' : 'eng'), [lang]);
+    const timeStorageRef = useRef(0);
+
+    const onPointerDownCallback = useCallback(() => timeStorageRef.current = Date.now(), []);
+
+    const onPointerUpCallback = useCallback(() => {
+        if (Date.now() - timeStorageRef.current < 300)
+            onToggleCallback();
+    }, [onToggleCallback, timeStorageRef]);
 
     return (
-        <div onClick={onToggleCallback} className={cnCard({ side: lang })}>
+        <div onPointerDown={onPointerDownCallback} onPointerUp={onPointerUpCallback} className={cnCard({ side: lang })}>
             <div className={cnCard('Content', { side: 'en', })}>
                 <CardContent
                     bio={`My name Ilya. I'm ${getOld('01.23.2002')} old. I have been working at Yandex for more than ${getOld('05.29.2019')} years. For more information, go to the PM.`}

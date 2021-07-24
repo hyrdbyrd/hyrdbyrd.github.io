@@ -24,6 +24,8 @@
     background-color: white;
 
     z-index: 600;
+
+    border-radius: 8px;
 }
 
 .Card::after {
@@ -35,13 +37,41 @@
     height: 282px;
 
     bottom: 0;
-    right: 0;
+    right: 4px;
     transform-origin: right bottom;
     transform: rotate(45deg);
 
     background-color: white;
 
     z-index: 400;
+
+    border-radius: 0 8px 0 0;
+}
+
+@media (max-width: 1100px) {
+    .Card::before {
+        border-radius: 40px;
+    }
+
+    .Card::after {
+        display: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .Card {
+        width: 100%;
+    }
+
+    .Card::before {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 460px) {
+    .Card {
+        height: 600px;
+    }
 }
 
 .Card-Logo {
