@@ -40,6 +40,19 @@ const contacts = (
 const email = '79789025278@ya.ru';
 const phone = '+79789025278';
 
+const getLang = () => {
+    const lslang = localStorage.getItem('lang');
+    if (lslang) return lslang;
+
+    const browserLang = window.navigator?.language;
+    const lang = ['ua', 'uk', 'ru'].includes(browserLang)
+        ? 'ru'
+        : 'eng';
+
+    localStorage.setItem('lang', lang);
+    return lang;
+}
+
 const CardContent = memo<CardContentProps>(({ logo, name, job, bio }) => (
     <div className={cnCardContent()}>
         <div className={cnCardContent('LeftSide')}>
@@ -70,8 +83,12 @@ const getOld = (date: string) =>
 
 const cnCard = cn('Card');
 export const Card = memo(() => {
-    const [lang, setLang] = useState('eng');
-    const onToggleCallback = useCallback(() => setLang(lang === 'eng' ? 'ru' : 'eng'), [lang]);
+    const [lang, setLang] = useState(getLang());
+    const onToggleCallback = useCallback(() => {
+        const newLang = lang === 'eng' ? 'ru' : 'eng';
+        localStorage.setItem('lang', newLang);
+        setLang(newLang);
+    }, [lang]);
     const timeStorageRef = useRef(0);
 
     const onPointerDownCallback = useCallback(() => timeStorageRef.current = Date.now(), []);
